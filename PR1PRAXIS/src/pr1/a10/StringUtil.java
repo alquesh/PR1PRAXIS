@@ -12,19 +12,27 @@ public class StringUtil {
 	public static void main(String[] args) {
 		PrintWriter out = new PrintWriter(System.out,true);
 		String test = "aB cD   eF gH  ";
-		String[] teststrings = new String[6];
-		teststrings = createTestStrings01(6);
-		for(int i = 0; i <= 5 ;i++){
-			out.println(teststrings[i]);
-			out.printf("Uppercase Count  = %d\n", getUpperCaseCount(teststrings[i]));
-			out.printf("Whitespace Ratio = %5.2f\n", getRatioWhitespace(teststrings[i])*100);
+		File testfile = new File("./testfiles/teststring.txt");
+		
+		
+		out.println("aB cD   eF gH  ");
+		out.printf("Uppercase Count  = %d\n", getUpperCaseCount(test));
+		out.printf("Whitespace Ratio = %5.2f\n", getRatioWhitespace(test)*100);
+		out.println("----------------------------");
+		
+		out.println("aB cD   eF gH  ");
+		out.printf("Uppercase Count  = %d\n", getUpperCaseCount(testfile));
+		out.printf("Whitespace Ratio = %5.2f\n", getRatioWhitespace(testfile)*100);
+		out.println("----------------------------");
+		
+		
+		String[] teststrings = createTestStrings01(6, 15, 25);
+		for(String s : teststrings){
+			out.println(s);
+			out.printf("Uppercase Count  = %d\n", getUpperCaseCount(s));
+			out.printf("Whitespace Ratio = %5.2f\n", getRatioWhitespace(s)*100);
 			out.println("----------------------------");
 		}
-//		out.println(getUpperCaseCount(test));
-//		out.println(getRatioWhitespace(test));
-//		File Testfile = new File("./testfiles/teststring.txt");
-//		out.println(getUpperCaseCount(Testfile));
-//		out.println(getRatioWhitespace(Testfile));
 	}
 	public static int getUpperCaseCount(String s){
 		int ergebnis = 0;
@@ -48,20 +56,23 @@ public class StringUtil {
 		return countWhiteSpace/s.length();
 	}
 	
-	public static String[] createTestStrings01(int i){
-		String[] ergebnis = new String[i];
-		Random generator = new Random();
-		for (int counter = 0; counter <= i-1; counter++){
-			ergebnis[counter] = createTestString(generator.nextInt(15)+10,generator); 
+	public static String[] createTestStrings01(int i, int min, int max){				
+		//creates a String[] with i elements with min - max range of length,
+		//a random amount of Uppercase Letters and Whitespaces in random intervals 
+		
+		String[] ergebnis = new String[i];												
+		Random generator = new Random();												
+		for (int counter = 0; counter <= i-1; counter++){								
+			ergebnis[counter] = createTestString(generator.nextInt(max-min)+min,generator); 
 		}
 		return ergebnis;
 	}
 	
-	public static String createTestString(int i, Random generator){
+	public static String createTestString(int i, Random generator){	
 		String ergebnis = "";
 		for (int counter = 1; counter <= i; counter++){
 			ergebnis = ergebnis + createTestchar(generator);
-			if (counter % (generator.nextInt(5)+1) == 0){
+			if (counter % (generator.nextInt(3)+3) == 0){
 				ergebnis = ergebnis + ' ';
 				counter++;
 			}
