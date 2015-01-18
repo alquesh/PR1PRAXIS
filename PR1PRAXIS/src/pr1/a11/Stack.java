@@ -1,38 +1,54 @@
 package pr1.a11;
 
 public class Stack extends AbstractStack {
+	protected Object[] content;
 
+	public Stack(int capacity){
+		content = new Object[capacity];
+		
+	}
+	public Stack(){
+		content = new Object[10];
+		
+	}
 	@Override
 	public Object pop() {
 		try{
-			return content[--size];
-		}catch(IllegalArgumentException e){
-			return "Stack ist leer";	
+
+			return content[size--];
+
+		}catch(Exception e){
+			size++;
+			return "Fehler : UnderFlow : "+e.toString();	
 		}
 	}
-
 	@Override
 	public Object peek() {
 		try{
-			return content[--size];
-		}catch(IllegalArgumentException e){
-			return "Stack ist leer";	
-		}
+			return content[size];
+		}catch(Exception e){
+			if (size>=capacity-1){
+				size--;
+				return "Fehler : Overflow : "+e.toString();
+			}
+			if(size<0){
+				size = 0;
+				return "Fehler : Underflow : "+e.toString();
+			}
+			return "Fehler : Dies sollte nie angezeigt werden !";
+		}	
 	}
-
 	@Override
-	public Object push(Object o) {
+	public void push(Object o) {
 		try{
-			content[size++] = o;
-		}catch(IllegalArgumentException e){
-			
+			content[++size] = o;
+		}catch(Exception e){
+			size--;
+			System.out.println("Fehler : Overflow : "+e.toString());
 		}
-		return o;
 	}
-
 	@Override
 	public int getsize() {
-		
 		return size;
 	}
 
