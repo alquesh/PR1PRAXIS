@@ -7,7 +7,10 @@ public class DirContent {
 	
 	
 	public static void main(String[] args){
-		
+		File test = new File("./listen");
+		printAll(test);
+		printFilesOnly(test);
+		printDirsOnly(test);
 	}
 	
 	public static void printAll(File path){
@@ -63,10 +66,6 @@ public class DirContent {
 		return "Verzeichnis";
 	}
 	public static void test(File[] path){
-		File test = new File("./listen");
-		printAll(test);
 		
-		printFilesOnly(test);
-		printDirsOnly(test);
 	}
 }
