@@ -3,8 +3,6 @@ package pr1.a11;
 public abstract class AbstractStack {
 	protected int capacity;
 	protected int size;
-	protected boolean overflow;
-	protected boolean underflow;
 
 	public AbstractStack(int capacity){	
 		this.capacity = capacity;
@@ -18,6 +16,4 @@ public abstract class AbstractStack {
 	public abstract Object peek();
 	public abstract void push(Object o);
 	public abstract int getsize();
-
-
 }

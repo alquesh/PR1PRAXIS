@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class ListStack extends AbstractStack{
 	protected ArrayList<Object> content;
 
-
 	public ListStack(int i){
 		super(i);
 		content = new ArrayList<Object>();

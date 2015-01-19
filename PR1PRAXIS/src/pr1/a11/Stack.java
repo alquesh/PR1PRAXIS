@@ -6,18 +6,14 @@ public class Stack extends AbstractStack {
 	public Stack(int capacity){
 		super(capacity);
 		content = new Object[capacity];
-		
 	}
 	public Stack(){
 		this(10);
-		
 	}
 	@Override
 	public Object pop() {
 		try{
-
 			return content[size--];
-
 		}catch(Exception e){
 			size++;
 			return "Fehler : UnderFlow : "+e.toString();	
@@ -52,5 +48,4 @@ public class Stack extends AbstractStack {
 	public int getsize() {
 		return size;
 	}
-
 }

@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 public class StackTest {
 	
 	public static void main(String[] args){
-		ListStack teststack = new ListStack(3);
+		Stack teststack = new Stack(3);
 		PrintWriter out = new PrintWriter(System.out,true);
 		teststack.push("Test 1");
 		teststack.push("Test 2");
