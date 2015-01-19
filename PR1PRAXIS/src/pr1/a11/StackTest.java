@@ -16,7 +16,6 @@ public class StackTest {
 		out.println(teststack.pop());
 		out.println(teststack.pop());
 		out.println(teststack.pop());
-		//out.println(teststack.pop());
 		out.println(teststack.peek());
 	}
 }

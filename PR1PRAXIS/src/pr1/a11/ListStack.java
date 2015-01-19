@@ -8,14 +8,12 @@ public class ListStack extends AbstractStack{
 
 	public ListStack(int i){
 		super(i);
-		content = new ArrayList<Object>(i);
+		content = new ArrayList<Object>();
 		size++;
 	}
 
 	public ListStack(){
-		super(10);
-		content = new ArrayList<Object>(10);
-		size++;
+		this(10);
 	}
 
 	@Override

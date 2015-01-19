@@ -4,11 +4,12 @@ public class Stack extends AbstractStack {
 	protected Object[] content;
 
 	public Stack(int capacity){
+		super(capacity);
 		content = new Object[capacity];
 		
 	}
 	public Stack(){
-		content = new Object[10];
+		this(10);
 		
 	}
 	@Override
